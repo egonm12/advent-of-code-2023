@@ -2,7 +2,7 @@ import 'dart:io';
 
 Future<void> createTextFile(String filePath, int lines) async {
   final file = File(filePath);
-  var sink = file.openWrite();
+  final sink = file.openWrite();
 
   for (var i = 0; i < lines; i++) {
     sink.writeln('Line ${i + 1}: This is a line.');
@@ -15,7 +15,7 @@ Future<void> createTextFile(String filePath, int lines) async {
 Future<void> deleteTextFile(String filePath) async {
   final file = File(filePath);
 
-  if (await file.exists()) {
+  if (file.existsSync()) {
     await file.delete();
   }
 }

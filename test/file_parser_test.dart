@@ -7,7 +7,7 @@ import 'test_utils/text_file.dart';
 
 void main() {
   group('parseFileToMap', () {
-    final filePath = './test/temp.txt';
+    const filePath = './test/temp.txt';
 
     tearDown(() async {
       await deleteTextFile(filePath);
@@ -33,7 +33,7 @@ void main() {
 
     test('throws when file is not found', () async {
       expect(
-        () async => await parseFileToMap(filePath),
+        () => parseFileToMap(filePath),
         throwsA(isA<PathNotFoundException>()),
       );
     });
